@@ -1,0 +1,27 @@
+
+<div class="container">
+<div class="row">
+<div class="col-3" *ngFor="let r of residences">
+    <app-residence [residence]="r" (show)="showApartment($event)" (delete)="deleteResidence($event)"></app-residence>
+</div>
+</div>
+<div class="row">
+    <table class="table" *ngIf="listApartmentsFiltred.length >0">
+        <thead>
+            <tr>
+                <th>Num appart</th>
+                <th>Floor Num</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let a of listApartmentsFiltred">
+            <td>{{a.appartNum}}</td>
+            <td>{{a.floorNum}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <div *ngIf="listApartmentsFiltred.length == 0">
+        No apartments found
+    </div>
+</div>
+</div>
